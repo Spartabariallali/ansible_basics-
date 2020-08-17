@@ -131,3 +131,39 @@ sudo apt-get update
 8) ping the connections back in aws controller
 
 ansible all -m ping
+
+
+### Ansible Ad Hoc Commands 
+ad hoc commads are one line commands that provide the functionality of ansible 
+An Ansible ad-hoc command uses the /usr/bin/ansible command-line tool to automate a single task on one or more managed nodes. Ad-hoc commands are quick and easy, but they are not reusable
+
+ad hoc commands - easy to use and gives a lot of information about a particular virtual machine. we can gather this information by gathering from the controller as oppose to the ssh'ing in to the vm itself 
+
+
+### example of ad hoc commands
+
+```
+ansible web -a "date"
+
+ansible db -a "uname -a"
+
+ansible all -m shell -a "ls -a"
+
+ansible all -a "free"
+
+ansible atlanta -m copy -a "src=/etc/hosts dest=/tmp/hosts"
+
+ansible all -m shell -a 'echo hello world'
+
+ansible webservers -m file -a "dest=/srv/foo/a.txt mode=600"
+
+ansible all -m shell -a "hostname -I" - returns ip address of vm
+ansible all -m shell -a "ifconfig" - returns all ip addresses of vm
+
+ansible all -m shell -a "uptime" - uptime of instances
+
+ansible all -m shell -a "env" - environment variables of instances
+
+ansible all -m shell -a "free" - returns free space of instances 
+
+```
