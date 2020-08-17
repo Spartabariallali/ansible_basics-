@@ -167,3 +167,23 @@ ansible all -m shell -a "env" - environment variables of instances
 ansible all -m shell -a "free" - returns free space of instances 
 
 ```
+
+### Ansible playbooks 
+
+Playbooks are Ansible’s configuration, deployment, and orchestration language.
+written in YAML file ext is .yml or .yaml (yet another markup language)
+
+YAML file start with three dashes (---)
+Kubernetes uses YAML
+Docker compose uses YAML
+widely used within the realm of infrastructure as code 
+
+we create the playbook within the Controller instances (the vm with ansible installed)
+
+### difference between ad hoc and playbook
+
+the playbook operates just like a bash script but has more powerful functionality
+automates the tasks we need to carry out in multiple locations 
+
+command to run playbook:
+n
