@@ -1,0 +1,93 @@
+tasks:
+  - name: Install nginx
+    apt: pkg=nginx state=present
+
+  - name: nginx reverse proxy
+    shell:  |
+      sudo unlink /etc/nginx/sites-enabled/default
+      cd /etc/nginx/sites-available
+      sudo touch reverse-proxy.conf
+      sudo chmod 666 reverse-proxy.conf
+      echo "server{
+        listen 80;
+        server_name development.local;
+        location / {
+            proxy_pass http://127.0.0.1:3000;
+        }
+      }" >> reverse-proxy.conf
+      sudo ln -s /etc/nginx/sites-available/reverse-proxy.conf /etc/nginx/sites-enabled/reverse-proxy.conf
+      sudo service nginx restart
+
+  - name: Install nodejs
+    apt: pkg=nodejs state=present
+
+  - name: Install NPM
+    apt: pkg=npm state=present
+
+  - name: installing npm modules
+    shell:
+      npm install -g npm@latest
+      npm install mongoose -y
+
+  - name: Install pm2
+    npm:
+      name: pm2
+      global: yes
+
+      sudo ln -s /etc/nginx/sites-available/reverse-proxy.conf /etc/nginx/sites-enabled/reverse-proxy.conf
+      sudo service nginx restart
+
+  - name: Install nodejs
+    apt: pkg=nodejs state=present
+
+  - name: Install NPM
+    apt: pkg=npm state=present
+
+  - name: installing npm modules
+    shell:
+      npm install -g npm@latest
+      npm install mongoose -y
+
+  - name: Install pm2
+    npm:
+      name: pm2
+      global: yes
+
+  - name: set up app
+    shell:
+      cd app
+      npm install
+      node app.js
+
+    environment:
+      DB_HOST: mongod://192.168.33.11:27017/posts
+
+
+
+- hosts: db
+
+  gather_facts: yes
+
+  become: true
+  global: yes
+
+   - name: set up app
+     shell:
+       cd app
+       npm install
+       node app.js
+
+     environment:
+       DB_HOST: mongod://192.168.33.11:27017/posts
+
+
+
+ - hosts: db
+
+   gather_facts: yes
+
+   become: true
+
+   tasks:
+     - name: install mongodb
+       apt: pkg=mongodb state=present
