@@ -46,7 +46,7 @@ Vagrant.configure("2") do |config|
     web.vm.network :private_network, ip: "192.168.33.10"
     #   assigning private IP
 
-    web.vm.synced_folder "app", "/home/vagrant"
+    web.vm.synced_folder "app", "/home/vagrant/app"
     # moving app directory in web virtual machine
 
     config.hostsupdater.aliases = ["development.web"]
@@ -63,8 +63,9 @@ Vagrant.configure("2") do |config|
 
     db.vm.network :private_network, ip: "192.168.33.11"
 
-    db.vm.synced_folder "environment", "/home/vagrant"
+    db.vm.synced_folder "environment", "/home/vagrant/db"
     # moving db directory in db virtual machine
+    
 
     config.hostsupdater.aliases = ["development.db"]
     end
