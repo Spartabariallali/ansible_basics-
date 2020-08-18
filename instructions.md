@@ -19,3 +19,26 @@ vagrant status
 ```
 
 ![vagrantstatus](imagesmd/vagrantup.jpeg)
+
+## 4. SSH into aws virtual machine
+```bash
+vagrant ssh aws
+```
+
+## 5. Installing Ansible on aws virtual machine
+
+```bash
+sudo apt-get install software-properties-common -y
+
+sudo apt-get update
+
+sudo apt-get install software-properties-common
+
+sudo apt-add-repository ppa:ansible/ansible
+
+sudo apt-get update
+
+sudo apt-get install ansible
+
+sudo apt-get install tree
+```
