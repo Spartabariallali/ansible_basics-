@@ -131,3 +131,10 @@ lastly run test to automate the whole process
 
 ansible-playbook test.yaml
 ```
+
+## OR You can run the setup_script.sh script
+```bash
+cd /home/vagrant/setup
+
+./setup_script.sh
+```
