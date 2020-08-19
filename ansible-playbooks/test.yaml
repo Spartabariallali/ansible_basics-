@@ -102,7 +102,7 @@
     apt: pkg=nodejs state=present
 
   - name: Install NPM
-    shell: sudo npm install 
+    apt: pkg=npm state=present
 
 # Downloading pm2
   - name: Install pm2
