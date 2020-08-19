@@ -42,6 +42,18 @@
           port: 27017
           bindIp: 0.0.0.0
 
+  - name: Restart mongodb
+    become: true
+    shell: systemctl restart mongodb
+
+  - name: enable mongodb
+    become: true
+    shell: systemctl enable mongodb
+
+  - name: start mongodb
+    become: true
+    shell: systemctl start mongodb
+
 
 # where do we want to install
 - hosts: web
