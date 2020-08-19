@@ -25,7 +25,7 @@ vagrant status
 vagrant ssh aws
 ```
 
-## 5. Installing Ansible on aws virtual machine
+## 5. Installing Ansible on the Controller vm (aws)
 
 ```bash
 sudo apt-get install software-properties-common -y
@@ -41,4 +41,87 @@ sudo apt-get update
 sudo apt-get install ansible
 
 sudo apt-get install tree
+```
+
+## 6 Setting up Ansible hosts with IP addresses
+
+```bash
+cd - so you are in the root of the controller
+
+cd/etc/ansible
+
+sudo su
+
+nano hosts
+
+copy and paste the following ensuring you comment out aws ip address
+
+[web]
+192.168.33.10 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+
+[db]
+192.168.33.11 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+
+[aws]
+192.168.33.12 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+```
+
+
+## 7 Enter into the Web and db virtual machine
+
+```bash
+#go into web server
+
+ssh vagrant@192.168.33.10
+
+type vagrant
+
+sudo apt-get update -y
+
+sudo apt-get upgrade -y
+
+echo "web is done"
+
+exit
+
+# do the same for db
+
+#go into web server
+
+ssh vagrant@192.168.33.11
+
+type vagrant
+
+sudo apt-get update -y
+
+sudo apt-get upgrade -y
+
+echo "db is done"
+
+exit
+```
+
+## 8 Check connection with ansible ping
+
+```bash
+ansible all -m ping
+```
+
+## 9 Run the YAML file
+```bash
+cd /home/vagrant/ansible
+
+ansible-playbook copy_app.yaml
+
+echo "App has been successfully copied to web virtual machine"
+
+ansible-playbook db_playbook.yaml
+
+echo "db has been provisoned"
+
+ansible-playbook test.yaml
+
+"app has been successfully provisioned"
+
+EOF
 ```
