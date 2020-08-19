@@ -124,8 +124,4 @@ ansible-playbook db_playbook.yaml
 lastly run test to automate the whole process
 
 ansible-playbook test.yaml
-
-
-
-EOF
 ```
