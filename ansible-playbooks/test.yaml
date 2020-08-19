@@ -102,7 +102,7 @@
       dest: /etc/nginx/sites-available/reverseproxy.conf
       state: link
 
-  - name: nginx bug workaround
+  - name: nginx bug fix
     shell: |
       sudo mkdir /etc/systemd/system/nginx.service.d
         printf "[Service]\nExecStartPost=/bin/sleep 0.1\n" | \

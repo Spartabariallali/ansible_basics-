@@ -134,3 +134,12 @@ cd /home/vagrant/setup
 
 ./setup_script.sh
 ```
+
+## 10. Running the Nodejs app
+```bash
+https://192.168.33.10
+
+https://192.168.33.10/fibonacci/7
+
+https://192.168.33.10/posts
+```
