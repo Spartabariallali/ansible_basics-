@@ -111,17 +111,21 @@ ansible all -m ping
 ```bash
 cd /home/vagrant/ansible
 
+syntax for running a .yaml file is ansible-playbook
+
+run the ansible copy_app.yaml first
+
 ansible-playbook copy_app.yaml
 
-echo "App has been successfully copied to web virtual machine"
+run the db playbook second
 
 ansible-playbook db_playbook.yaml
 
-echo "db has been provisoned"
+lastly run test to automate the whole process
 
 ansible-playbook test.yaml
 
-"app has been successfully provisioned"
+
 
 EOF
 ```
