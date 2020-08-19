@@ -5,6 +5,12 @@
 - `Vagrant` [download here](https://www.vagrantup.com/downloads)
 - `Ansible` - This will be downloaded once inside the vm
 
+## Files that needed for this to work
+- ansible-playbooks
+- app
+- setup
+- vagrantfile
+
 ## 1. Download the contents of the repo
 - Download the contents of the this repo
 
