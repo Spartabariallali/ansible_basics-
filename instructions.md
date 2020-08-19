@@ -49,7 +49,7 @@ sudo apt-get install ansible
 sudo apt-get install tree
 ```
 
-## 6 Setting up Ansible hosts with IP addresses
+## 6. Setting up Ansible hosts with IP addresses
 
 ```bash
 cd - so you are in the root of the controller
@@ -73,7 +73,7 @@ copy and paste the following ensuring you comment out aws ip address
 ```
 
 
-## 7 Enter into the Web and db virtual machine
+## 7. Enter into the Web and db virtual machine
 
 ```bash
 #go into web server
@@ -107,13 +107,13 @@ echo "db is done"
 exit
 ```
 
-## 8 Check connection with ansible ping
+## 8. Check connection with ansible ping
 
 ```bash
 ansible all -m ping
 ```
 
-## 9 Run the YAML file
+## 9. Run the YAML file
 ```bash
 cd /home/vagrant/ansible
 
