@@ -86,8 +86,6 @@ sudo apt-get update -y
 
 sudo apt-get upgrade -y
 
-echo "web is done"
-
 exit
 
 # do the same for db
@@ -101,8 +99,6 @@ type vagrant
 sudo apt-get update -y
 
 sudo apt-get upgrade -y
-
-echo "db is done"
 
 exit
 ```
